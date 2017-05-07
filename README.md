@@ -9,18 +9,18 @@ Installation procedure.
 7.  Give all Global privelages to the user for now.
 8.  Now make a database with the database name =  "virtual_library"
 9.  Once created select the database.
-10. Click on the Import tab above and import the sql file "credit_suisse/sql/virtual_library.sql" from the project folder.
+10. Click on the Import tab above and import the sql file "virtual_library/sql/virtual_library.sql" from the project folder.
 11. All tables will be ready by now.
 12. Now place the project folder in the "/opt/lampp/htdocs/" folder for linux users.
-13. Run the app from browser using the following url "localhost/credit_suisse".
+13. Run the app from browser using the following url "localhost/virtual_library".
 1. 
     Default administrator users for the virtual library are:
+		username = "abhishekthorat02" password = "student"
 		username = "faizhalde" password =  "student"
-		username = "scooby02" password = "Mohan123$"
 
     Default content managers for the virtual library are:
-                username = "vinayak" password =  "sakshi"
-                username = "siddhesh" password = "mugdha"
+                username = "vinayak" password =  "vinayak"
+                username = "siddhesh" password = "siddhesh"
                 username = "Mohan" password =  "mohan"
 
 13. Feel free to play with the application.
