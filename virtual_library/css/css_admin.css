@@ -1,0 +1,122 @@
+.post-content {
+    background-color: white;
+}
+
+.report h4 {
+    color: #54ab82;
+}
+
+.report h2 {
+    color: #171717;
+    text-align: center;
+    font-family: 'Roboto Slab' ,sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.student_report li {
+    font-size: 17px;
+    color: #8b7474;
+    font-family: copseFont;
+}
+
+.content_manager ul {
+    font-size: 17px;
+    color: #8b7474;
+    font-family: copseFont;
+}
+
+.content_manager ul ul {
+    font-size: 15px;
+    color: #463920;
+    font-family: copseFont;
+}
+
+.Author li {
+    font-size: 17px;
+    color: #8b7474;
+    font-family: copseFont;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+label {
+    color: #54ab82;
+}
+
+.hr {
+    margin-top: 20px;
+    height: 2px;
+    width: 100%;
+    background-color: #d14f2e;
+}
+
+.search-input {
+    opacity: 1;
+}
+
+.userlist h4 {
+    color: #54ab82;
+}
+
+.userlist .content {
+    color: #8b7474;
+    margin-left: 30px;
+}
+
+.block {
+    width: 20%;
+    height: 25px;
+    font-size: 15px;
+    outline: none;
+    background-color: #fd4f46;
+    color: white;
+    box-shadow: 0px 0px 2px #B3241d, 0px 0px 0px #B3241d,
+  1px 1px 2px #B3241d, 0px 0px 0px #B3241d,
+  2px 2px 2px #B3241d, 0px 0px 0px #B3241d,
+  3px 3px 2px #B3241d, 0px 0px 0px #B3241d,
+  4px 4px 2px #B3241d, 0px 0px 0px #B3241d;
+    border: none;
+    position: relative;
+}
+
+.block:active {
+    box-shadow: 1px 1px 2px #B3241d,0px 0px 0px #000000;
+    top: 3px;
+    left: 3px;
+}
+
+.user_request h4 {
+    color: #54ab82;
+}
+
+.user_request .content {
+    color: #8b7474;
+    margin-left: 30px;
+}
+
+.userlist,.user_request,.blocked_user {
+    display: none;
+}
+
+.blocked_user h4 {
+    color: #54ab82;
+}
+
+.blocked_user .content {
+    color: #8b7474;
+    margin-left: 30px;
+}
+
+.userlist .block {
+    margin-right: 10px;
+}
+
+.report h2, .userlist h2, .user_request h2, .blocked_user h2 {
+    text-align: center;
+    font-family: 'Roboto Slab' ,sans-serif;
+}

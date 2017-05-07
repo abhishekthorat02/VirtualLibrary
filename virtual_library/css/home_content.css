@@ -1,0 +1,158 @@
+.report-course h4 {
+    color: #54ab82;
+}
+
+.report-course h2 {
+    color: #171717;
+    text-align: center;
+    font-family: 'Roboto Slab' ,sans-serif;
+}
+
+.report-department li {
+    color: #171717;
+    font-size: 15px;
+}
+
+.report-course .fa-caret-right {
+    color: #53abac;
+}
+
+.report-course .fa-book, .fa-upload {
+    color: #6c6996;
+}
+
+.course_request_show_div, .course_accepted_show_div {
+    display: none;
+}
+
+.course_request_show_div h4, .course_accepted_show_div h4 {
+    color: #54ab82;
+    font-family: 'Roboto Slab' ,sans-serif;
+}
+
+.course_request_show_div .content, .course_accepted_show_div .content {
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.course_request_show_div .content .fa, .course_accepted_show_div .content .fa {
+    color: #c6393c;
+}
+
+.course_request_show_div p, .course_accepted_show_div p {
+    color: #333;
+    font-size: 20px;
+    font-family: copseFont;
+}
+
+.block {
+    width: 20%;
+    height: 25px;
+    font-size: 15px;
+    outline: none;
+    background-color: #fd4f46;
+    color: white;
+    box-shadow: 0px 0px 2px #B3241d, 0px 0px 0px #B3241d,
+  1px 1px 2px #B3241d, 0px 0px 0px #B3241d,
+  2px 2px 2px #B3241d, 0px 0px 0px #B3241d,
+  3px 3px 2px #B3241d, 0px 0px 0px #B3241d,
+  4px 4px 2px #B3241d, 0px 0px 0px #B3241d;
+    border: none;
+    position: relative;
+}
+
+.hr {
+    margin-top: 20px;
+    height: 2px;
+    width: 100%;
+    background-color: #d14f2e;
+}
+
+.block:active {
+    box-shadow: 1px 1px 2px #B3241d,0px 0px 0px #000000;
+    top: 3px;
+    left: 3px;
+}
+
+.report-course h2, .course_request_show_div h2, .course_accepted_show_div h2, .course_uploads_show_div h2 {
+    text-align: center;
+    font-family: 'Roboto Slab' ,sans-serif;
+}
+
+.course_uploads_show_div  h3 {
+    color: #54ab82;
+}
+
+.course_uploads_show_div a {
+    color: #847474;
+    font-size: 17px;
+    font-family: copseFont;
+    text-decoration: none;
+    margin-left: 30px;
+}
+
+.course_uploads_show_div h5 {
+    color: #6c6996;
+    margin-left: 30px;
+    font-size: 17px;
+}
+
+.research_request_show_div a h4 {
+    color: #54ab82;
+    text-align: center;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.research_request_show_div li {
+    font-size: 17px;
+    color: #8b7474;
+    font-family: copseFont;
+}
+
+.research_request_show_div h3 {
+    color: #54ab82;
+}
+
+.research_request_show_div p {
+    margin-left: 20px;
+    font-size: 20px;
+    color: #5b5b5b;
+    font-family: font-family: copseFont;
+    text-decoration: none;
+}
+
+.research_request_show_div {
+    display: none;
+}
+
+.research_request_show_div a {
+    margin-left: 20px;
+    font-size: 20px;
+    color: #4a75b5;
+    font-family: font-family: copseFont;
+    text-decoration: none;
+}
+.spam_request_show_div{
+display: none;
+}
+.spam_request_show_div h4{
+color: #54ab82;
+}
+.spam_request_show_div h3{
+color: #54ab82;
+}
+.spam_request_show_div h5{
+margin-left: 30px;
+}
+.spam_request_show_div a {
+    margin-left: 20px;
+    font-size: 20px;
+    color: #4a75b5;
+    font-family: font-family: copseFont;
+    text-decoration: none;
+}
+

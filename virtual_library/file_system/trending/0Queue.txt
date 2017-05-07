@@ -1,0 +1,83 @@
+COMPOUNDER.C
+#include <stdio.h>
+#include "queue.h"
+void printmenu() {
+	printf("1. New Patient \n");
+	printf("2. Send patient \n");
+	printf("3. Exit \n");
+}
+void clearscreen() {
+	int i;
+	for(i = 0; i < 50; i++)
+		printf("\n");
+}
+int main() {
+	queue q;
+	int choice;
+	char name;
+	qinit(&q);
+	while(1) {
+		printqueue(&q);
+		printmenu();
+		scanf("%d",&choice); 
+		getchar();
+		switch(choice) {
+			case 1:
+				printf("Enter name: ");
+				scanf("%c",&name);
+				if(qfull(&q))
+					printf("Go back, no time \n");
+				else
+					enqueue(&q, name);
+				break;
+			case 2:
+				if(qempty(&q))
+					printf("close the clinic\n");
+				else
+					name = dequeue(&q);
+				printf("%c\n", name);
+				break;
+			case 3:
+				return 0;
+		}
+	}	
+	return 0;
+}
+QUEUE.C
+#include "queue.h"
+void init(queue *q) {
+	q->head = q->tail = q->count = 0;
+}
+void enque(queue *q, int x) {
+	q->array[q->tail] = x;
+	q->tail++;
+	if(q->tail == SIZE)
+		q->tail = 0;
+	q->count++;
+}
+int deque(queue *q) {
+	int temp;
+	temp = q->array[q->head];
+	q->head++;
+	if(q->head == SIZE)
+		q->head = 0;
+	q->count--;
+	return temp;
+}
+int empty(queue *q) {
+	return q->count == 0;	
+}
+int full(queue *q) {
+	return q->count == SIZE;	
+}
+QUEUE.H
+#define SIZE	128
+typedef struct q;
+	int array[SIZE];
+	int head, tail, count;
+}queue;
+void init(queue *q);
+void enque(queue *q, int x);
+int deque(queue *q);
+int empty(queue *q);
+int full(queue *q);

@@ -1,0 +1,182 @@
+TIME COMPLEXITY
+Lecture Notes on Time Complexity Analysis
+-----------------------------------------
+
+We have already discussed that we desire programs which run faster. The question now is, how can we qualify a program as faster than another ? 
+
+For this let us try to measure time taken by some programs(functions). 
+
+Consider the following function
+
+int average(int array[], int n) {
+	int i, sum = 0;
+	for(i = 0; i < n; i++)
+		sum = sum + array[i];
+	return sum / n;
+}
+
+How much time does the function take?
+To find the exact time taken, we have to use some system provided commands like "time"
+{ e.g. time ./a.out  will tell in the end actual time in seconds taken} 
+
+However to compare two programs, we need to theorotically analyse the time that it takes. 
+
+So how do we theorotically measure the time taken by above function? 
+
+Some rules that we can very quickly agree on:
+* Time taken by the function is the sum of time taken by steps in the code
+* Same type of operations would take same time always (e.g. a = b or b = c takes the same time)
+
+Let us assume the following:
+{ Here A, B, C ... are all some some constants)
+Time taken by = is A	// we can assume some constant time here, as in some number of machine instructions.
+Time taken by < is B
+Time taken by ++ is C
+Time taken by + is also C 
+Time taken by / is D
+Time taken by return is E
+
+Note, Imp: There is no time taken in declaraing variables and arguments as they are just declarations, not "code which executes". 
+
+So what is the total time taken by the above function? 
+Let's compute.
+int average(int array[], int n) {	// 0 Time
+	int i, sum = 0;			// A Time
+	for(i = 0; i < n; i++)	// (A + B + C)  * (No. of times loop runs = n)
+		sum = sum + array[i];	// (A + C) * (n) 
+	return sum / n;		// D + E 
+}
+
+So the total time taken is
+A + D + E + (A + B + C + A + C ) * (n)
+= n * P + Q
+Where P and Q are also constants.
+
+From this formula we can say that 
+* As 'n' increases, the time taken by function also increases
+* The time taken is directly proportional to 'n' 
+
+If we see carefully, then the 'n' is an input to the function, then we can say
+* The time taken is directly propotional to the "size" of the input.
+
+Exercise
+--------
+Find out the time taken by the following function
+
+void addarray(int a[][], int b[][], int c[][], int r, int c) {
+	int i, j;
+	for(i = 0; i < r; i++)
+		for(j = 0; j < c; j++)
+			c[i][j] = a[i][j] + b[i][j];
+	
+}
+
+Ans: A + B.rc + C.r + D.c
+
+Question
+--------
+Now suppose two different functions for doing the same work take following time:
+2n + 100  and 3n + 50
+Then which function is better?
+
+Let's find out for some values of n
+n		2n+100		3n+50
+1		102		53
+10		120		80
+50		200		200
+100		300		350
+500		1100		1550
+1000		2100		3050		
+
+If we equate the two formulas, we get  2n + 100 = 3n + 50 -> n = 50.
+Also, 
+3n + 50 > 2n + 100
+==> n > 50
+So We can even mathematically say that 3n+50 will be bigger than 2n+50, whenever n> 50 now.
+
+If not specified, we assume that the program time complexity is being compared for very high inputs.
+As we have seen that 3n+50 takes more time than 2n+100 for n>50, so we say that 2n+100 runs faster than 3n+50. 
+
+Exercise: Do the same for the following:  5n + 50000 Vs n^2 + 5;   n.log n  Vs n^2;  100 log n Vs 5n
+
+SECOND FILE
+Lecture Notes on Time Complexity Analysis
+Exercise: Do the same for the following:  5n + 50000 Vs n^2 + 5;   n.log n  Vs n^2;  100 log n Vs 5n
+
+O, Omega, and Theta Notations
+-----------------------------
+Let us compare 100n+100  Vs  5n^2 + 5
+
+n		100n + 100		5n^2 + 5
+1		200			25
+10		1100			505
+20		2100			2005
+50		5100			12505
+100		10100			50005
+1000
+
+We observe that for any two functions like this
+a) There is a "break even point" beyond which one function dominates the other
+b) Suppose the functino is A.n^2 + B. Then if the constants like A or B in the formulas increase, the break even point only shifts ahead, but (a) still holds true.
+
+Let us also look at the nature of the functions which are most commonly encountered in programs. These functions are   
+lg(n)	n	n.lg(n).	n^2	n^3	2^n
+( See page 42 in DSA textbook. Table 1.7 and Page 43, Figure 1.8) 
+
+We observe that 
+A) the "rate of incrase" of the functions changes drastically. Thus 2^n rises at a very very very high rate, n^3 rises at a very high rate, n.lg(n) rises at high rate, while lg(n) rises at a very very slow rate compared to n.
+B) If we are comparing  A.n^3 Vs B.2^n then   even if A is very very big and B is very small,  the second function will dominate the first one after some value of n.
+C) If we are comparing 100n^2 and 500n^2 then both of them will always be stay below 3n^3 (or any B.n^3 or D.2^n). Also, both 100n^2 and 500n^2 can be said to be "like n^2".
+
+To take this logic further, let us say that a program runs in f(n) = 100n^2 + 50 time. Then
+We can see that
+100n^2 + 50 <= 200n^2  whenever n > 2
+Therefore we can say that the program will never run worse than 200n^2 time. 
+
+To assess the "speed" of any program, we need to make some judgements about the time it will take. As we have seen that the time taken depends on the "size of the input", and the time (normally) increases with the size of the input. We have also seen that sometimes the time increases linearly, sometimes it increases quadratically, etc.  
+
+Most of the times it is enough for us to say that "in the worst case this program will always run slower than limit A" e.g. "this program always runs slower than 3n^2 or this program always runs faster than 5n" 
+
+A better description would rather be "this program always runs faster than 3n^2 and slower than 5n^2"
+
+The O, Omega, and Theta notations help us do this.
+
+O notation
+----------
+f(n) = O(g(n)) { read as f of n is Oh of g of n } if and only if there exist positive constants c and n0 such that f(n) <= c.g(n) whenever n>=n0.
+
+This notation is used for describing an "upper bound" on the behaviour of the function. It just says that f(n) will never behave worse than c*g(n) (that is some multiple of g(n)). 
+
+The multiple factor basically comes from the fact that constants don't matter for categories of functions like   n^2  Vs 2^n for comparison.  
+
+For example:
+Let f(n) = 3n^2 + 10
+Then f(n) <= 5n^2 whenever  n >= 3	{ Here c = 5, n0 = 3}
+So f(n) = O(n^2)
+
+Omega notation(can't write Omega symbol in text so writing 'omega' instead)
+-------------
+f(n) = Omega(g(n)) { read as f of n is Omega of g of n } if and only if there exist positive constants c and n0 such that f(n) >= c.g(n) whenever n>=n0.
+
+This notation is used for describing an "lower bound" on the behaviour of the function. It just says that f(n) will never behave better than c*g(n) (that is some multiple of g(n)). 
+
+For example:
+Let f(n) = 3n^2 + 10
+Then f(n) >= 3n^2 whenever  n >= 0	{ Here c = 3, n0 = 0}
+So f(n) = Omega(n^2)
+
+Theta Notation (Can't write theta symbol in text, so write 'theta'))
+--------------
+f(n) = Theta(g(n)) iff f(n) = O(g(n)) and f(n) = Omega(g(n))
+
+
+Some imp observations
+---------------------
+If f(n) = 3n^3 + 2n + 10 then
+   f(n) <= ((3+2+10)+1)n^3 --> f(n) = O(n^3)
+This can be generalised as  (here a_m means a underscore m)
+If f(n) = a_m. n^m + a_(m-1). n^(m-1) + .... + a_1. n + a_0
+Then f(n) = O(n^m)
+
+Similarly we can show that f(n) = Omega(n^m) and f(n) = Theta(n^m) 
+

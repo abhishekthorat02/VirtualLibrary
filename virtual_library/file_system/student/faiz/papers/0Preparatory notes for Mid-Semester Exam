@@ -1,0 +1,74 @@
+Write any 3 infix expressions. Write their prefix equivalents. 
+
+Find out the upper bound (O) and lower bound(Omega) for the given function
+void g(int a, char *c) {
+	int i;
+	j = strlen(c);
+	for(i = 0; i < j; i++) {
+		a += strlen(c);
+	}
+	return a;
+} 
+
+Write a function which imitates the strtok C library function. 
+
+Write a stack implementation based on dynamic-linking of nodes together. This means, you have to write only the stack.c and stack.h files.  
+
+Write a function which reads an infix expression and returns the result of evaluation.
+int evalinfix(char *infix);
+
+Given following enqueue code, write the dequeue code.
+#define SIZE    128
+typedef struct q {
+        int *array;
+        int head, tail, count;
+        int size;
+}queue;
+void init(queue *q) {
+        q->array = (int *)malloc(sizeof(int) * MAX);
+        q->head = q->tail = q->count = 0;
+        q->size = MAX;
+}
+void enque(queue *q, int x) {
+        if(q->count == q->size) {
+                q->array = (int *)realloc(q->array, 2 * q->size);
+                if(q->array == NULL) {
+                        perror("");
+                        exit(ENOMEM);
+                }
+                q->size = q->size * 2;
+        }
+        q->array[q->tail] = x;
+        q->tail++;
+        if(q->tail == SIZE)
+                q->tail = 0;
+        q->count++;
+}
+
+Write a complete C program which accepts command line argument - a filename, and prints the number of occurances of the character '#' in the file.
+
+
+Draw a diagram of the data structure created by following C code just before main returns. Assume that all mallocs succeed. Show all pointers in the diagram in their correct state.
+#include <stdio.h>
+typedef struct  node{
+	char *name;
+	struct node *a[4]; 
+}node;
+int main() {
+	node *x, *y, a, b, *p;
+	int i;
+	x = (node *)malloc(sizeof(node));
+	x->a[0] = x->a[1] = NULL;
+	x->a[2] = &a;
+	a.a[3] = (node *)malloc(sizeof(struct node));
+	a.a[3]->a[2] = &b;
+	a.a[3]->a[0] = a.a[3]->a[1] = x;
+	p = &b;
+	for(i = 0; i < 4; i++) {
+		p->a[i] = NULL;
+	}
+	y = &a;
+	for(i = 0; i < 4; i++) {
+		y->a[i] = NULL;
+	}
+}
